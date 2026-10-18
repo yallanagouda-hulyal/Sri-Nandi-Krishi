@@ -1,0 +1,854 @@
+/* ==========================================================================
+   Sri Nandi Krishi Organic Enterprise — Premium Organic Products Auto-Slider
+   Palette:
+     - Deep Organic Green: #064E32
+     - Warm Ivory Cream:   #F8F6EC
+     - Harvest Gold:       #D9A72E
+   ========================================================================== */
+
+.organic-slider-section {
+  position: relative;
+  padding: 48px 0 64px 0;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+/* Outer Shell / Container */
+.organic-slider-container {
+  position: relative;
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Main Banner Wrapper */
+.organic-slider-card {
+  position: relative;
+  min-height: 490px;
+  border-radius: 28px;
+  overflow: hidden;
+  background-color: #064E32;
+  box-shadow: 0 24px 60px rgba(6, 78, 50, 0.22), 0 8px 24px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(217, 167, 46, 0.32);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  isolation: isolate;
+  transition: box-shadow 0.35s ease;
+}
+
+.organic-slider-card:hover {
+  box-shadow: 0 28px 70px rgba(6, 78, 50, 0.28), 0 10px 30px rgba(0, 0, 0, 0.16);
+}
+
+/* Subtle Vignette & Glow Background */
+.slider-bg-ambient {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background: radial-gradient(circle at 85% 40%, rgba(217, 167, 46, 0.14) 0%, transparent 60%),
+              radial-gradient(circle at 15% 20%, rgba(248, 246, 236, 0.08) 0%, transparent 50%),
+              linear-gradient(135deg, #064E32 0%, #053b26 50%, #042e1d 100%);
+}
+
+/* Decorative Leaves Background Animation */
+.floating-leaf {
+  position: absolute;
+  pointer-events: none;
+  z-index: 1;
+  opacity: 0.25;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+  animation: leafFloat 8s ease-in-out infinite alternate;
+}
+
+.floating-leaf-1 {
+  top: 18px;
+  left: 28px;
+  width: 52px;
+  height: 52px;
+  animation-duration: 9s;
+}
+
+.floating-leaf-2 {
+  bottom: 60px;
+  left: 38%;
+  width: 44px;
+  height: 44px;
+  animation-duration: 11s;
+  animation-delay: -3s;
+}
+
+.floating-leaf-3 {
+  top: 24px;
+  right: 120px;
+  width: 60px;
+  height: 60px;
+  animation-duration: 10s;
+  animation-delay: -5s;
+}
+
+@keyframes leafFloat {
+  0% {
+    transform: translateY(0) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translateY(-8px) rotate(4deg) scale(1.03);
+  }
+  100% {
+    transform: translateY(-16px) rotate(-3deg) scale(0.98);
+  }
+}
+
+/* Slide Content Layout */
+.slide-content-grid {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: 1.08fr 1fr;
+  align-items: center;
+  gap: 36px;
+  padding: 44px 50px 32px 50px;
+  min-height: 410px;
+}
+
+/* Left Column: Typography & Benefits */
+.slide-text-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 580px;
+}
+
+/* Badge */
+.slide-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  border-radius: 9999px;
+  background: rgba(248, 246, 236, 0.12);
+  border: 1px solid rgba(217, 167, 46, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F8F6EC;
+  font-size: 0.84rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.slide-badge-icon {
+  color: #D9A72E;
+  font-size: 1rem;
+}
+
+/* Main Heading */
+.slide-main-title {
+  font-family: var(--font-serif);
+  font-size: 2.85rem;
+  line-height: 1.15;
+  color: #F8F6EC;
+  font-weight: 700;
+  margin: 0 0 14px 0;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.slide-main-title .gold-accent {
+  display: block;
+  font-style: italic;
+  font-weight: 500;
+  color: #D9A72E;
+  margin-top: 2px;
+}
+
+/* Description */
+.slide-description {
+  font-family: var(--font-body);
+  font-size: 1.02rem;
+  line-height: 1.62;
+  color: rgba(248, 246, 236, 0.88);
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+/* 4 Benefits Row */
+.slide-benefits-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  width: 100%;
+  margin-bottom: 26px;
+}
+
+.benefit-pill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+  background: rgba(248, 246, 236, 0.08);
+  border: 1px solid rgba(217, 167, 46, 0.28);
+  border-radius: 14px;
+  padding: 10px 8px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+
+.benefit-pill-item:hover {
+  transform: translateY(-3px);
+  background: rgba(248, 246, 236, 0.14);
+  border-color: #D9A72E;
+}
+
+.benefit-icon-circle {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: rgba(217, 167, 46, 0.16);
+  border: 1px solid rgba(217, 167, 46, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D9A72E;
+  transition: background 0.25s ease, transform 0.25s ease;
+}
+
+.benefit-pill-item:hover .benefit-icon-circle {
+  background: #D9A72E;
+  color: #064E32;
+  transform: scale(1.06);
+}
+
+.benefit-label {
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  color: #F8F6EC;
+  line-height: 1.3;
+}
+
+/* Action Button */
+.slide-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: #F8F6EC;
+  color: #064E32;
+  font-family: var(--font-body);
+  font-size: 0.96rem;
+  font-weight: 700;
+  padding: 13px 28px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 167, 46, 0.6);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
+}
+
+.slide-cta-btn:hover {
+  background: #D9A72E;
+  color: #064E32;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(217, 167, 46, 0.4);
+  border-color: #D9A72E;
+}
+
+.slide-cta-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.slide-cta-btn:hover svg {
+  transform: translateX(4px);
+}
+
+/* Right Column: Visual Showcase */
+.slide-visual-col {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 310px;
+}
+
+/* Product Showcase Frame (Slide 1) */
+.product-showcase-frame {
+  position: relative;
+  width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(217, 167, 46, 0.35);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.product-showcase-img {
+  width: 100%;
+  height: 290px;
+  object-fit: cover;
+  object-position: 85% 30%;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.product-showcase-frame:hover .product-showcase-img {
+  transform: scale(1.03);
+}
+
+/* Glass Badge on Image */
+.visual-floating-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(6, 78, 50, 0.82);
+  border: 1px solid rgba(217, 167, 46, 0.45);
+  color: #F8F6EC;
+  font-size: 0.74rem;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 9999px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.visual-floating-badge svg {
+  color: #D9A72E;
+}
+
+/* Script Accent Tag */
+.visual-script-tag {
+  position: absolute;
+  bottom: 12px;
+  left: 14px;
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #D9A72E;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.7);
+  background: rgba(6, 78, 50, 0.75);
+  padding: 4px 12px;
+  border-radius: 8px;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(217, 167, 46, 0.25);
+}
+
+/* Crop Photography Frame (Slides 2, 3, 4) */
+.crop-photo-frame {
+  position: relative;
+  width: 100%;
+  height: 290px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+  border: 1px solid rgba(217, 167, 46, 0.35);
+}
+
+.crop-photo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.crop-photo-frame:hover .crop-photo-img {
+  transform: scale(1.04);
+}
+
+/* Glass Stat Overlay for Crop Slides */
+.crop-stat-overlay {
+  position: absolute;
+  bottom: 14px;
+  left: 14px;
+  right: 14px;
+  background: rgba(6, 78, 50, 0.85);
+  border: 1px solid rgba(217, 167, 46, 0.35);
+  border-radius: 12px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F8F6EC;
+}
+
+.crop-stat-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: rgba(248, 246, 236, 0.85);
+}
+
+.crop-stat-val {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: #D9A72E;
+}
+
+/* Bottom Ribbon: 4 Soil & Farming Pillars */
+.slider-bottom-strip {
+  position: relative;
+  z-index: 2;
+  margin: 0 36px 18px 36px;
+  background: rgba(4, 46, 29, 0.78);
+  border: 1px solid rgba(217, 167, 46, 0.24);
+  border-radius: 16px;
+  padding: 12px 24px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  align-items: center;
+}
+
+.strip-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #F8F6EC;
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.strip-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(217, 167, 46, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D9A72E;
+  flex-shrink: 0;
+}
+
+/* Slider Controls: Side Arrows */
+.slider-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(248, 246, 236, 0.94);
+  color: #064E32;
+  border: 1px solid rgba(217, 167, 46, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.25);
+  transition: all 0.25s ease;
+}
+
+.slider-arrow-btn:hover {
+  background: #D9A72E;
+  color: #064E32;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 18px rgba(217, 167, 46, 0.5);
+  border-color: #D9A72E;
+}
+
+.slider-arrow-prev {
+  left: 12px;
+}
+
+.slider-arrow-next {
+  right: 12px;
+}
+
+/* Slider Controls: Bottom Pagination Dots */
+.slider-dots-wrap {
+  position: absolute;
+  bottom: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 10;
+  padding: 4px 12px;
+  background: rgba(4, 46, 29, 0.65);
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 167, 46, 0.2);
+  backdrop-filter: blur(6px);
+}
+
+.slider-dot-btn {
+  width: 8px;
+  height: 8px;
+  border-radius: 9999px;
+  background: rgba(248, 246, 236, 0.4);
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.3s ease;
+}
+
+.slider-dot-btn:hover {
+  background: rgba(248, 246, 236, 0.8);
+}
+
+.slider-dot-btn.active {
+  width: 26px;
+  background: #D9A72E;
+  box-shadow: 0 0 10px rgba(217, 167, 46, 0.6);
+}
+
+/* ==========================================================================
+   Organic Products Modal Styles
+   ========================================================================== */
+.organic-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(4, 34, 22, 0.75);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+.organic-modal-dialog {
+  position: relative;
+  width: 100%;
+  max-width: 1040px;
+  max-height: 90vh;
+  background: #F8F6EC;
+  border: 2px solid rgba(217, 167, 46, 0.45);
+  border-radius: 24px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.4);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.organic-modal-header {
+  padding: 24px 30px;
+  background: #064E32;
+  color: #F8F6EC;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #D9A72E;
+}
+
+.organic-modal-header-info h3 {
+  font-family: var(--font-serif);
+  font-size: 1.55rem;
+  color: #F8F6EC;
+  margin: 0 0 4px 0;
+}
+
+.organic-modal-header-info p {
+  color: rgba(248, 246, 236, 0.85);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+.organic-modal-close-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(248, 246, 236, 0.15);
+  border: 1px solid rgba(217, 167, 46, 0.4);
+  color: #F8F6EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.organic-modal-close-btn:hover {
+  background: #D9A72E;
+  color: #064E32;
+}
+
+/* Modal Filter Tabs */
+.organic-modal-tabs {
+  display: flex;
+  gap: 10px;
+  padding: 16px 30px;
+  background: #ECE8D8;
+  border-bottom: 1px solid rgba(6, 78, 50, 0.12);
+  overflow-x: auto;
+}
+
+.modal-tab-btn {
+  padding: 8px 18px;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(6, 78, 50, 0.2);
+  background: #F8F6EC;
+  color: #064E32;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.modal-tab-btn.active,
+.modal-tab-btn:hover {
+  background: #064E32;
+  color: #F8F6EC;
+  border-color: #064E32;
+}
+
+/* Modal Content Grid */
+.organic-modal-body {
+  padding: 24px 30px;
+  overflow-y: auto;
+  max-height: calc(90vh - 180px);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 20px;
+}
+
+/* Product Item Card */
+.modal-product-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(6, 78, 50, 0.14);
+  border-radius: 16px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 4px 14px rgba(6, 78, 50, 0.06);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.modal-product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(6, 78, 50, 0.12);
+  border-color: #D9A72E;
+}
+
+.modal-product-img-wrap {
+  width: 100%;
+  height: 170px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #F8F6EC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+  border: 1px solid rgba(6, 78, 50, 0.08);
+}
+
+.modal-product-img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.modal-product-card:hover .modal-product-img {
+  transform: scale(1.05);
+}
+
+.modal-product-badge {
+  display: inline-block;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #064E32;
+  background: rgba(217, 167, 46, 0.22);
+  padding: 3px 10px;
+  border-radius: 9999px;
+  margin-bottom: 8px;
+  width: fit-content;
+}
+
+.modal-product-title {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 700;
+  color: #064E32;
+  margin: 0 0 4px 0;
+}
+
+.modal-product-pack {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #D9A72E;
+  margin-bottom: 8px;
+}
+
+.modal-product-desc {
+  font-size: 0.84rem;
+  color: #4A5A50;
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.modal-product-highlights {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 16px 0;
+  font-size: 0.78rem;
+  color: #314238;
+}
+
+.modal-product-highlights li {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 4px;
+}
+
+.modal-product-highlights svg {
+  color: #064E32;
+  flex-shrink: 0;
+}
+
+.modal-enquire-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: #064E32;
+  color: #F8F6EC;
+  font-size: 0.88rem;
+  font-weight: 600;
+  padding: 10px 16px;
+  border-radius: 10px;
+  border: 1px solid #D9A72E;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-decoration: none;
+}
+
+.modal-enquire-btn:hover {
+  background: #D9A72E;
+  color: #064E32;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 1024px) {
+  .slide-content-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    padding: 36px 36px 28px 36px;
+  }
+
+  .slide-main-title {
+    font-size: 2.35rem;
+  }
+
+  .slide-benefits-row {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .slider-bottom-strip {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 24px 16px 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .organic-slider-section {
+    padding: 32px 0 48px 0;
+  }
+
+  .organic-slider-card {
+    min-height: auto;
+    border-radius: 20px;
+  }
+
+  .slide-content-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 28px 20px 24px 20px;
+  }
+
+  .slide-text-col {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+
+  .slide-main-title {
+    font-size: 1.95rem;
+  }
+
+  .slide-description {
+    font-size: 0.92rem;
+    text-align: center;
+  }
+
+  .slide-benefits-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .product-showcase-img,
+  .crop-photo-frame {
+    height: 220px;
+  }
+
+  .slider-bottom-strip {
+    display: none; /* Hide bottom strip on mobile to prevent clutter and keep arrows/dots accessible */
+  }
+
+  .slider-arrow-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .slider-arrow-prev {
+    left: 6px;
+  }
+
+  .slider-arrow-next {
+    right: 6px;
+  }
+
+  .slider-dots-wrap {
+    bottom: 6px;
+  }
+
+  .organic-modal-body {
+    grid-template-columns: 1fr;
+    padding: 16px;
+  }
+
+  .organic-modal-header {
+    padding: 16px 20px;
+  }
+}
+
+/* Reduced Motion Preference */
+@media (prefers-reduced-motion: reduce) {
+  .floating-leaf {
+    animation: none;
+  }
+  .product-showcase-img,
+  .crop-photo-img,
+  .benefit-pill-item,
+  .slide-cta-btn,
+  .slider-arrow-btn,
+  .slider-dot-btn {
+    transition: none !important;
+  }
+}

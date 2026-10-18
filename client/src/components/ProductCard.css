@@ -1,0 +1,318 @@
+/* ==========================================================================
+   Sri Nandi Krishi Organic Enterprise — Premium Product Card Component
+   Design Theme:
+     - Forest Green: #07351D / #0B4D2B
+     - Warm Cream:   #FAF8EF / #F8F1DD
+     - Harvest Gold: #D9A72E / #B5881D
+     - Dark Slate:   #37474F
+   ========================================================================== */
+
+.premium-product-card {
+  background: #FFFFFF;
+  border: 1px solid rgba(217, 167, 46, 0.35);
+  border-radius: 22px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.07), 0 2px 6px rgba(0, 0, 0, 0.03);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 0.35s ease;
+  position: relative;
+}
+
+.premium-product-card:hover {
+  transform: translateY(-8px);
+  border-color: #D9A72E;
+  box-shadow: 0 20px 42px rgba(11, 77, 43, 0.13), 0 6px 16px rgba(217, 167, 46, 0.16);
+}
+
+/* 1. Agricultural Visual Area (HD 3D Product Showcase) */
+.product-card-visual-frame {
+  position: relative;
+  width: 100%;
+  height: 275px;
+  overflow: hidden;
+  display: block;
+  text-decoration: none;
+  background-color: #07351D;
+}
+
+/* Ultra-HD 3D Photorealistic Product Image */
+.product-visual-hd-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  display: block;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.4s ease;
+}
+
+.premium-product-card:hover .product-visual-hd-img {
+  transform: scale(1.06);
+  filter: brightness(1.04);
+}
+
+/* Organic Curved Gold Dividing Arc at Bottom of Photo */
+.product-visual-curve-divider {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 24px;
+  z-index: 3;
+  pointer-events: none;
+}
+
+/* 2. Card Content Body */
+.product-card-body {
+  padding: 18px 22px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+  background: #FFFFFF;
+}
+
+/* Header Row: Circular Gold Badge + Product Title & Subtitle */
+.product-card-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.product-card-icon-badge {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: #D9A72E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFFFFF;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(217, 167, 46, 0.35);
+  transition: transform 0.25s ease, background-color 0.25s ease;
+}
+
+.premium-product-card:hover .product-card-icon-badge {
+  transform: scale(1.08);
+  background: #B5881D;
+}
+
+.product-card-title-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.product-card-title {
+  font-family: var(--font-serif);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #07351D;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.product-card-title a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.product-card-title a:hover {
+  color: #126338;
+}
+
+.product-card-subtitle {
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #B5881D;
+  margin-top: 3px;
+  line-height: 1.3;
+}
+
+/* 3 Short Bullet Benefits with Custom Green Agriculture Icons */
+.product-card-benefits {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 18px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.product-benefit-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.benefit-icon-wrap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #126338;
+  flex-shrink: 0;
+}
+
+.benefit-text {
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: #37474F;
+  line-height: 1.4;
+  font-weight: 500;
+}
+
+/* Full-width Dark Green View Details Button & Cream Leaf Seal */
+.product-card-action-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.product-card-btn-view {
+  flex: 1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #07351D;
+  color: #FFFFFF;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 700;
+  padding: 11px 20px;
+  border-radius: 9999px;
+  border: 1px solid rgba(217, 167, 46, 0.35);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  box-shadow: 0 4px 12px rgba(7, 53, 29, 0.2);
+}
+
+.product-card-btn-view:hover {
+  background: #0E5E34;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(7, 53, 29, 0.3);
+  border-color: #D9A72E;
+}
+
+.product-card-btn-view svg {
+  transition: transform 0.25s ease;
+}
+
+.product-card-btn-view:hover svg {
+  transform: translateX(4px);
+}
+
+/* Direct WhatsApp Action Button (Replaces static leaf badge) */
+.product-card-wa-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25D366 0%, #1EBE5D 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.45);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  cursor: pointer;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+}
+
+.product-card-wa-btn svg {
+  color: #FFFFFF;
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.15));
+  transition: transform 0.25s ease;
+}
+
+.product-card-wa-btn:hover {
+  transform: scale(1.12);
+  background: linear-gradient(135deg, #2cf074 0%, #25D366 100%);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.55);
+}
+
+.product-card-wa-btn:hover svg {
+  transform: scale(1.08) rotate(4deg);
+}
+
+.product-card-wa-btn:active {
+  transform: scale(0.95);
+}
+
+/* Fallback / legacy support */
+.product-card-leaf-badge {
+  display: none;
+}
+
+/* ==========================================================================
+   Responsive Adaptations
+   ========================================================================== */
+@media (max-width: 640px) {
+  .product-card-visual-frame {
+    height: 240px;
+  }
+
+  .product-visual-packaging {
+    max-height: 175px;
+    max-width: 150px;
+  }
+
+  .product-card-title {
+    font-size: 1.12rem;
+  }
+
+  .product-card-subtitle {
+    font-size: 0.78rem;
+  }
+
+  .benefit-text {
+    font-size: 0.82rem;
+  }
+
+  .product-card-btn-view {
+    padding: 10px 16px;
+    font-size: 0.85rem;
+  }
+
+  .product-card-leaf-badge {
+    width: 38px;
+    height: 38px;
+  }
+}
+
+/* ==========================================================================
+   Reusable Products Catalog Grid Layout (4 cols desktop, 2 tablet, 1 mobile)
+   ========================================================================== */
+.products-catalog-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 1200px) {
+  .products-catalog-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 22px;
+  }
+}
+
+@media (max-width: 640px) {
+  .products-catalog-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
+

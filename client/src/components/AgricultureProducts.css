@@ -1,0 +1,195 @@
+/* ==========================================================================
+   Sri Nandi Krishi Organic Enterprise — Agriculture Products Section
+   Design Theme:
+     - Forest Green: #064E32 / #07351D
+     - Warm Cream:   #FAF8EF / #F8F6EC
+     - Harvest Gold: #D9A72E / #B5881D
+   ========================================================================== */
+
+.agri-products-section {
+  position: relative;
+  padding: 85px 0 95px 0;
+  background-color: #FFFFFF;
+  overflow: hidden;
+}
+
+/* Header Wrapper */
+.agri-header-wrap {
+  text-align: center;
+  max-width: 860px;
+  margin: 0 auto 52px auto;
+  position: relative;
+  z-index: 2;
+}
+
+/* Eyebrow: OUR AGRICULTURE PRODUCTS with gold side lines */
+.agri-eyebrow-flex {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 12px;
+}
+
+.agri-eyebrow-line {
+  display: inline-block;
+  width: 50px;
+  height: 1.5px;
+  background: linear-gradient(90deg, transparent 0%, #D9A72E 100%);
+}
+
+.agri-eyebrow-line.right {
+  background: linear-gradient(90deg, #D9A72E 0%, transparent 100%);
+}
+
+.agri-eyebrow-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-body);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #B5881D;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+}
+
+.agri-eyebrow-pill svg {
+  color: #126338;
+}
+
+/* Main Heading */
+.agri-main-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.1rem, 3.8vw, 3.1rem);
+  color: #07351D;
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0 0 14px 0;
+  display: block;
+  text-align: center;
+}
+
+/* Subtitle */
+.agri-main-subtitle {
+  font-family: var(--font-body);
+  font-size: 1.05rem;
+  color: #556B5D;
+  line-height: 1.6;
+  max-width: 680px;
+  margin: 0 auto 20px auto;
+}
+
+/* Golden Center Divider with Diamond */
+.agri-gold-ornament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin: 0 auto;
+}
+
+.agri-ornament-line {
+  width: 60px;
+  height: 1px;
+  background: #D9A72E;
+  opacity: 0.6;
+}
+
+.agri-ornament-diamond {
+  width: 6px;
+  height: 6px;
+  background: #D9A72E;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(217, 167, 46, 0.6);
+}
+
+/* 4-Product Cards Grid */
+.agri-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 2;
+  margin-bottom: 48px;
+}
+
+/* Bottom CTA Button: Explore All Products */
+.agri-bottom-cta-wrap {
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+.agri-explore-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #D9A72E;
+  color: #07351D;
+  font-family: var(--font-body);
+  font-size: 0.98rem;
+  font-weight: 700;
+  padding: 14px 34px;
+  border-radius: 9999px;
+  border: 1px solid rgba(181, 136, 29, 0.5);
+  box-shadow: 0 8px 22px rgba(217, 167, 46, 0.32);
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.28s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.agri-explore-all-btn:hover {
+  background: #E8BE4F;
+  color: #042413;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(217, 167, 46, 0.45);
+  border-color: #D9A72E;
+}
+
+.agri-explore-all-btn svg {
+  transition: transform 0.25s ease;
+}
+
+.agri-explore-all-btn:hover svg:last-child {
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   ========================================================================== */
+@media (max-width: 1200px) {
+  .agri-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+}
+
+@media (max-width: 768px) {
+  .agri-products-section {
+    padding: 60px 0 70px 0;
+  }
+
+  .agri-cards-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 440px;
+    margin: 0 auto 36px auto;
+  }
+
+  .agri-main-title {
+    font-size: 1.85rem;
+  }
+
+  .agri-main-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .agri-explore-all-btn {
+    width: 100%;
+    max-width: 320px;
+    padding: 13px 24px;
+    font-size: 0.92rem;
+  }
+}
