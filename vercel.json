@@ -1,0 +1,10 @@
+{
+  "buildCommand": "npm --prefix client install && npm --prefix client run build && node -e \"const fs=require('fs'); if(fs.existsSync('client/dist')) fs.cpSync('client/dist', 'dist', {recursive:true});\"",
+  "outputDirectory": "client/dist",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ]
+}
