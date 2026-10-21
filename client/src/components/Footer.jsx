@@ -14,9 +14,9 @@ export default function Footer({ settings }) {
   const [newsletterEmail, setNewsletterEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
-  const phone = settings?.phone || '+91 98765 43210';
+  const phone = settings?.phone && !settings.phone.includes('98765') ? settings.phone : '+91 79753 05677';
   const email = settings?.email || 'srinandikrushi70@gmail.com';
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
   const facebookUrl = settings?.facebookUrl || 'https://www.facebook.com/share/19CwgVuDLW/?mibextid=wwXIfr';
   const instagramUrl = settings?.instagramUrl || 'https://www.instagram.com/sri_nandi_krishi_bio_fertilser?igsh=eHBrcG5jemNhYzF3&utm_source=qr&wa_status_inline=true';
 
@@ -95,7 +95,17 @@ export default function Footer({ settings }) {
             </div>
             <div className="footer-contact-line">
               <MapPin size={14} color="#D6A62E" />
-              <span>Serving Farmers Across India</span>
+              <a
+                href={settings?.mapUrl || "https://maps.app.goo.gl/X7TSxQT93axMuCXV6?g_st=ic"}
+                target="_blank"
+                rel="noreferrer"
+                style={{ color: 'inherit', textDecoration: 'none' }}
+                title="View location on Google Maps"
+              >
+                {(settings?.location && settings.location !== 'Karnataka, India')
+                  ? settings.location
+                  : 'Tadkal road, Aland, Karnataka 585302'}
+              </a>
             </div>
           </div>
         </div>

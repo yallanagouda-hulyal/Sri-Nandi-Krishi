@@ -112,7 +112,7 @@ export const CROP_SERVICES_DATA = [
 export const DEFAULT_SERVICES = CROP_SERVICES_DATA;
 
 export default function Services({ settings }) {
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   return (
     <section className="services-section" id="services">

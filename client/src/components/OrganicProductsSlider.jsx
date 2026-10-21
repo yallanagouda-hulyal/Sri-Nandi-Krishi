@@ -255,7 +255,7 @@ export default function OrganicProductsSlider({ settings }) {
   const [activeTab, setActiveTab] = useState('all');
   const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
 
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   // Check accessibility reduced-motion preference
   useEffect(() => {

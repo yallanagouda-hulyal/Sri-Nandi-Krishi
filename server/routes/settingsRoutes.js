@@ -28,6 +28,7 @@ router.get('/public', async (_req, res) => {
         youtubeUrl: settings.youtubeUrl,
         linkedinUrl: settings.linkedinUrl,
         twitterUrl: settings.twitterUrl,
+        mapUrl: settings.mapUrl,
         mapEmbedUrl: settings.mapEmbedUrl,
         developerCredit: settings.developerCredit,
         developerUrl: settings.developerUrl,

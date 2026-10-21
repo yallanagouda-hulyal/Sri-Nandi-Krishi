@@ -36,7 +36,7 @@ export default function ProductDetails() {
     }).catch(console.error);
   }, [id]);
 
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   const handleEnquire = () => {
     if (!product) return;

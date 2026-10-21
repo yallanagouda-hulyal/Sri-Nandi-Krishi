@@ -24,7 +24,7 @@ import papayaCrop from '../assets/papaya.jpg';
 import watermelonCrop from '../assets/watermelon.jpg';
 
 export default function About({ settings }) {
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   const handleScrollToStory = (e) => {
     e.preventDefault();

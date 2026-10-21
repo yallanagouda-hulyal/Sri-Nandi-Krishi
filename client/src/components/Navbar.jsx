@@ -35,7 +35,7 @@ export default function Navbar({ settings }) {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   useEffect(() => {
     const handleScroll = () => {

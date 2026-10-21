@@ -7,11 +7,13 @@ export default function SettingsManager({ showToast }) {
     businessName: 'Sri Nandi Krishi Organic Enterprise',
     tagline: 'Better Farming. Brighter Tomorrow.',
     email: 'srinandikrushi70@gmail.com',
-    phone: '+91 98765 43210',
-    whatsappNumber: '919876543210',
-    location: 'Karnataka, India',
-    address: 'Agricultural Guidance Center, Karnataka, India',
+    phone: '+91 79753 05677',
+    whatsappNumber: '917975305677',
+    location: 'Tadkal road, Aland, Karnataka 585302',
+    address: 'Sri Nandi Krishi Organic Enterprises, Tadkal Road, Aland, Karnataka 585302',
     workingHours: 'Mon - Sat: 8:00 AM - 6:00 PM',
+    mapUrl: 'https://maps.app.goo.gl/X7TSxQT93axMuCXV6?g_st=ic',
+    mapEmbedUrl: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15234.0!2d76.5678524!3d17.5632704!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc8ad6fb5ccdc6f%3A0x22c769fe7d935575!2sSri%20Nandi%20Krishi%20organic%20enterprises%20Aland!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin',
     websiteUrl: 'https://srinandikrishi.com',
     facebookUrl: 'https://www.facebook.com/share/19CwgVuDLW/?mibextid=wwXIfr',
     instagramUrl: 'https://www.instagram.com/sri_nandi_krishi_bio_fertilser?igsh=eHBrcG5jemNhYzF3&utm_source=qr&wa_status_inline=true',
@@ -88,7 +90,7 @@ export default function SettingsManager({ showToast }) {
                 value={form.whatsappNumber}
                 onChange={handleChange}
                 className="admin-form-input"
-                placeholder="919876543210"
+                placeholder="917975305677"
               />
               <small style={{ color: '#586B60', fontSize: '11px' }}>
                 Used for one-click WhatsApp consultation bookings
@@ -103,7 +105,7 @@ export default function SettingsManager({ showToast }) {
                 value={form.phone}
                 onChange={handleChange}
                 className="admin-form-input"
-                placeholder="+91 98765 43210"
+                placeholder="+91 79753 05677"
               />
             </div>
 
@@ -126,14 +128,14 @@ export default function SettingsManager({ showToast }) {
           <h4 style={{ color: '#124B2A', marginBottom: '14px', fontSize: '15px' }}>Location & Hours</h4>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '16px' }}>
             <div className="admin-form-group">
-              <label className="admin-form-label">Location / State</label>
+              <label className="admin-form-label">Location / Town / State</label>
               <input
                 type="text"
                 name="location"
                 value={form.location}
                 onChange={handleChange}
                 className="admin-form-input"
-                placeholder="Karnataka, India"
+                placeholder="Tadkal road, Aland, Karnataka 585302"
               />
             </div>
 
@@ -145,7 +147,7 @@ export default function SettingsManager({ showToast }) {
                 value={form.address}
                 onChange={handleChange}
                 className="admin-form-input"
-                placeholder="Rural Agricultural Service Center, Karnataka"
+                placeholder="Sri Nandi Krishi Organic Enterprises, Tadkal Road, Aland, Karnataka 585302"
               />
             </div>
 
@@ -159,6 +161,36 @@ export default function SettingsManager({ showToast }) {
                 className="admin-form-input"
                 placeholder="Mon - Sat: 8:00 AM - 6:00 PM"
               />
+            </div>
+
+            <div className="admin-form-group">
+              <label className="admin-form-label">Google Maps Link (Short or Direct URL)</label>
+              <input
+                type="text"
+                name="mapUrl"
+                value={form.mapUrl}
+                onChange={handleChange}
+                className="admin-form-input"
+                placeholder="https://maps.app.goo.gl/..."
+              />
+              <small style={{ color: '#586B60', fontSize: '11px' }}>
+                Opened when visitors click location cards and directions
+              </small>
+            </div>
+
+            <div className="admin-form-group">
+              <label className="admin-form-label">Google Maps Embed URL (Iframe Src)</label>
+              <input
+                type="text"
+                name="mapEmbedUrl"
+                value={form.mapEmbedUrl}
+                onChange={handleChange}
+                className="admin-form-input"
+                placeholder="https://www.google.com/maps/embed?..."
+              />
+              <small style={{ color: '#586B60', fontSize: '11px' }}>
+                Used for the interactive map frame on the contact page
+              </small>
             </div>
           </div>
         </div>

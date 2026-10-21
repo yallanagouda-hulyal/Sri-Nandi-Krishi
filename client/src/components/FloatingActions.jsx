@@ -5,8 +5,8 @@ import { buildWhatsAppUrl } from '../utils/whatsapp';
 import Chatbot from './Chatbot';
 
 export default function FloatingActions({ settings }) {
-  const phone = settings?.phone || '+91 98765 43210';
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const phone = settings?.phone && !settings.phone.includes('98765') ? settings.phone : '+91 79753 05677';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
   const telHref = phone ? `tel:${phone.replace(/[^0-9+]/g, '')}` : '#';
   const waUrl = buildWhatsAppUrl('', '', whatsappNumber);
 

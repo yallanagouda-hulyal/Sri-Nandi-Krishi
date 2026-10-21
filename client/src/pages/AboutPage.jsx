@@ -41,7 +41,7 @@ export default function AboutPage() {
     }).catch(console.error);
   }, []);
 
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
 
   const handleOpenChat = () => {
     window.dispatchEvent(new CustomEvent('open-krishi-chat'));

@@ -154,7 +154,8 @@ export default function BookingsManager({ showToast }) {
                 </tr>
               ) : (
                 filteredBookings.map((b) => {
-                  const cleanPhone = b.phone?.replace(/[^0-9]/g, '');
+                  let cleanPhone = b.phone?.replace(/[^0-9]/g, '') || '';
+                  if (cleanPhone.length === 10) cleanPhone = `91${cleanPhone}`;
                   const waReplyUrl = `https://wa.me/${cleanPhone}?text=${encodeURIComponent(`Hello ${b.name}, thank you for contacting Sri Nandi Krishi regarding ${b.crop} farming guidance.`)}`;
 
                   return (

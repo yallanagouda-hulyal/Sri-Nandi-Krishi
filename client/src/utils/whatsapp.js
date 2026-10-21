@@ -2,12 +2,15 @@
  * Sri Nandi Krishi Organic Enterprise WhatsApp Helper
  */
 
-export const BUSINESS_WHATSAPP_NUMBER = '919876543210';
-export const BUSINESS_PHONE_NUMBER = '+91 98765 43210';
+export const BUSINESS_WHATSAPP_NUMBER = '917975305677';
+export const BUSINESS_PHONE_NUMBER = '+91 79753 05677';
 
 export const cleanPhoneNumber = (rawNumber) => {
   if (!rawNumber) return BUSINESS_WHATSAPP_NUMBER;
-  const digits = rawNumber.replace(/[^0-9]/g, '');
+  let digits = rawNumber.replace(/[^0-9]/g, '');
+  if (digits.length === 10) {
+    digits = `91${digits}`;
+  }
   return digits.length >= 10 ? digits : BUSINESS_WHATSAPP_NUMBER;
 };
 

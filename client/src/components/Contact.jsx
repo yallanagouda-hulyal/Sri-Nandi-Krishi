@@ -12,8 +12,10 @@ import {
   ChevronRight,
   Leaf,
   CheckCircle2,
-  AlertCircle
+  AlertCircle,
+  ExternalLink
 } from 'lucide-react';
+import { FaWhatsapp } from 'react-icons/fa';
 import farmerTablet from '../assets/farmer-tablet.jpg';
 import { bookingService } from '../services/api';
 import { openWhatsApp } from '../utils/whatsapp';
@@ -31,10 +33,16 @@ export default function Contact({ settings }) {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState({ type: '', text: '' });
 
-  const phone = settings?.phone || '+91 98765 43210';
+  const phone = settings?.phone && !settings.phone.includes('98765') ? settings.phone : '+91 79753 05677';
   const email = settings?.email || 'srinandikrushi70@gmail.com';
-  const location = settings?.location || 'Karnataka, India';
-  const whatsappNumber = settings?.whatsappNumber || '919876543210';
+  const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';
+  const mapUrl = settings?.mapUrl || 'https://maps.app.goo.gl/X7TSxQT93axMuCXV6?g_st=ic';
+
+  // Exact street-level pin for Sri Nandi Krishi Organic Enterprises in Aland
+  const EXACT_ALAND_MAP_EMBED = 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3800.5!2d76.5699156!3d17.5703105!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc8ad6fb5ccdc6f%3A0x22c769fe7d935575!2sSri%20Nandi%20Krishi%20organic%20enterprises%20Aland!5e0!3m2!1sen!2sin!4v1710000000000!5m2!1sen!2sin';
+  const mapEmbedUrl = (settings?.mapEmbedUrl && !settings.mapEmbedUrl.includes('Karnataka!5e0') && !settings.mapEmbedUrl.includes('1d3847926'))
+    ? settings.mapEmbedUrl
+    : EXACT_ALAND_MAP_EMBED;
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -140,22 +148,71 @@ export default function Contact({ settings }) {
               </div>
             </div>
 
-            {/* 3 Horizontal Contact Cards */}
+            {/* 4 Horizontal Contact Cards */}
             <div className="contact-cards-stack">
+              {/* WhatsApp Card */}
+              <a
+                href={`https://wa.me/917975305677?text=${encodeURIComponent('Hello Sri Nandi Krishi Organic Enterprise, I would like to consult regarding agricultural crop guidance.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-ref-card"
+                title="Chat on WhatsApp (+91 79753 05677)"
+                style={{ borderLeft: '4px solid #25D366' }}
+              >
+                <div className="contact-ref-card-left">
+                  <div className="ref-icon-bubble" style={{ background: '#25D366', color: '#fff' }}>
+                    <FaWhatsapp size={20} />
+                  </div>
+                  <div className="ref-text-col">
+                    <span className="ref-label" style={{ color: '#128C7E', fontWeight: 700 }}>WHATSAPP CONSULTATION</span>
+                    <b className="ref-value" style={{ color: '#0f5132' }}>+91 79753 05677</b>
+                    <small className="ref-hint">Instant 24/7 crop guidance & order advice</small>
+                  </div>
+                </div>
+                <div className="ref-arrow-circle" aria-hidden="true" style={{ background: '#25D366', color: '#fff' }}>
+                  <ChevronRight size={18} />
+                </div>
+              </a>
+
               {/* Phone Card */}
               <a
                 href={`tel:${phone.replace(/\s+/g, '')}`}
                 className="contact-ref-card"
-                title="Call us directly"
+                title="Call us directly (+91 79753 05677)"
+                style={{ borderLeft: '4px solid #D6A62E' }}
               >
                 <div className="contact-ref-card-left">
-                  <div className="ref-icon-bubble">
+                  <div className="ref-icon-bubble" style={{ background: '#D6A62E', color: '#fff' }}>
                     <Phone size={20} />
                   </div>
                   <div className="ref-text-col">
-                    <span className="ref-label">PHONE</span>
+                    <span className="ref-label">DIRECT CALL</span>
                     <b className="ref-value">{phone}</b>
-                    <small className="ref-hint">Call us for instant support</small>
+                    <small className="ref-hint">Call us directly for immediate support</small>
+                  </div>
+                </div>
+                <div className="ref-arrow-circle" aria-hidden="true">
+                  <ChevronRight size={18} />
+                </div>
+              </a>
+
+              {/* Location Card */}
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="contact-ref-card"
+                title="View Sri Nandi Krishi Organic Enterprises on Google Maps"
+                style={{ borderLeft: '4px solid #124B2A' }}
+              >
+                <div className="contact-ref-card-left">
+                  <div className="ref-icon-bubble" style={{ background: '#124B2A', color: '#fff' }}>
+                    <MapPin size={20} />
+                  </div>
+                  <div className="ref-text-col">
+                    <span className="ref-label">ENTERPRISE LOCATION</span>
+                    <b className="ref-value">Tadkal Road, Aland</b>
+                    <small className="ref-hint">Kalaburagi, Karnataka 585302 (Open in Google Maps)</small>
                   </div>
                 </div>
                 <div className="ref-arrow-circle" aria-hidden="true">
@@ -177,29 +234,6 @@ export default function Contact({ settings }) {
                     <span className="ref-label">EMAIL</span>
                     <b className="ref-value">{email}</b>
                     <small className="ref-hint">Drop us an email, we'll respond soon</small>
-                  </div>
-                </div>
-                <div className="ref-arrow-circle" aria-hidden="true">
-                  <ChevronRight size={18} />
-                </div>
-              </a>
-
-              {/* Location Card */}
-              <a
-                href="https://maps.google.com/?q=Karnataka+Organic+Farming"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="contact-ref-card"
-                title="View our location on Google Maps"
-              >
-                <div className="contact-ref-card-left">
-                  <div className="ref-icon-bubble">
-                    <MapPin size={20} />
-                  </div>
-                  <div className="ref-text-col">
-                    <span className="ref-label">LOCATION</span>
-                    <b className="ref-value">{location}</b>
-                    <small className="ref-hint">Visit our farm or office</small>
                   </div>
                 </div>
                 <div className="ref-arrow-circle" aria-hidden="true">
@@ -360,6 +394,106 @@ export default function Contact({ settings }) {
             </div>
           </motion.div>
         </div>
+
+        {/* Interactive Google Map Section */}
+        <motion.div
+          className="contact-map-section"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          style={{
+            marginTop: '45px',
+            background: '#ffffff',
+            borderRadius: '16px',
+            overflow: 'hidden',
+            boxShadow: '0 10px 30px rgba(0,0,0,0.06)',
+            border: '1px solid #E1E8E3'
+          }}
+        >
+          <div
+            style={{
+              padding: '18px 24px',
+              display: 'flex',
+              flexWrap: 'wrap',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              gap: '12px',
+              borderBottom: '1px solid #EAEFEA',
+              background: '#F9FAF9'
+            }}
+          >
+            <div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <MapPin size={20} color="#124B2A" />
+                <h3 style={{ margin: 0, fontSize: '18px', fontWeight: 700, color: '#124B2A' }}>
+                  Sri Nandi Krishi Organic Enterprises
+                </h3>
+              </div>
+              <p style={{ margin: '4px 0 0 28px', fontSize: '13px', color: '#586B60' }}>
+                Tadkal Road, Aland, Kalaburagi, Karnataka 585302
+              </p>
+            </div>
+            <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
+              <a
+                href={`https://wa.me/917975305677?text=${encodeURIComponent('Hello Sri Nandi Krishi Organic Enterprise, I would like to consult or visit your Aland enterprise.')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 18px',
+                  background: '#25D366',
+                  color: '#ffffff',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <FaWhatsapp size={16} />
+                <span>WhatsApp: 7975305677</span>
+              </a>
+
+              <a
+                href={mapUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '8px',
+                  padding: '10px 18px',
+                  background: '#124B2A',
+                  color: '#ffffff',
+                  borderRadius: '8px',
+                  fontSize: '13px',
+                  fontWeight: 600,
+                  textDecoration: 'none',
+                  transition: 'all 0.2s ease'
+                }}
+              >
+                <span>Get Directions on Google Maps</span>
+                <ExternalLink size={15} />
+              </a>
+            </div>
+          </div>
+
+          <div style={{ width: '100%', height: '400px', position: 'relative' }}>
+            <iframe
+              title="Sri Nandi Krishi Organic Enterprises Location Map"
+              src={mapEmbedUrl}
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </motion.div>
       </div>
     </section>
   );
