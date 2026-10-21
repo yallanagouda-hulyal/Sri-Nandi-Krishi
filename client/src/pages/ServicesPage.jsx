@@ -6,7 +6,7 @@ import { FaWhatsapp } from 'react-icons/fa';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
-import { cropService, settingsService } from '../services/api';
+import { cropService, settingsService, DEFAULT_SETTINGS } from '../services/api';
 import { openWhatsApp } from '../utils/whatsapp';
 
 import sugarcaneImg from '../assets/sugarcane-crop.jpg';
@@ -70,13 +70,15 @@ export const CROP_SERVICES = [
 ];
 
 export default function ServicesPage() {
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     settingsService.getPublic().then((data) => {
       if (data) setSettings(data);
-    }).catch(console.error);
+    }).catch(() => {
+      setSettings(DEFAULT_SETTINGS);
+    });
   }, []);
 
   const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';

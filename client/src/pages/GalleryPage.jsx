@@ -4,7 +4,7 @@ import { X, ZoomIn, Image as ImageIcon } from 'lucide-react';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
-import { galleryService, settingsService } from '../services/api';
+import { galleryService, settingsService, DEFAULT_SETTINGS } from '../services/api';
 
 import sugarcaneField from '../assets/sugarcane-field.jpg';
 import sugarcaneRows from '../assets/sugarcane-rows.jpg';
@@ -36,14 +36,16 @@ export default function GalleryPage() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [items, setItems] = useState(DEFAULT_GALLERY);
   const [activeImage, setActiveImage] = useState(null);
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
 
     settingsService.getPublic().then((data) => {
       if (data) setSettings(data);
-    }).catch(console.error);
+    }).catch(() => {
+      setSettings(DEFAULT_SETTINGS);
+    });
 
     galleryService.getAll().then((data) => {
       if (data && data.length > 0) {

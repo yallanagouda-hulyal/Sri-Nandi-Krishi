@@ -21,7 +21,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
 import { openWhatsApp } from '../utils/whatsapp';
-import { settingsService } from '../services/api';
+import { settingsService, DEFAULT_SETTINGS } from '../services/api';
 
 // Photographic Assets
 import aboutFarmer from '../assets/about-farmer-inspecting.jpg';
@@ -32,13 +32,15 @@ import watermelonCrop from '../assets/watermelon.jpg';
 import heroLeavesTop from '../assets/hero-leaves-top.png';
 
 export default function AboutPage() {
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     settingsService.getPublic().then((data) => {
       if (data) setSettings(data);
-    }).catch(console.error);
+    }).catch(() => {
+      setSettings(DEFAULT_SETTINGS);
+    });
   }, []);
 
   const whatsappNumber = settings?.whatsappNumber && !settings.whatsappNumber.includes('98765') ? settings.whatsappNumber : '917975305677';

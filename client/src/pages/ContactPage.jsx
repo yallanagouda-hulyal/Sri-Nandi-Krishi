@@ -3,16 +3,18 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
 import Contact from '../components/Contact';
-import { settingsService } from '../services/api';
+import { settingsService, DEFAULT_SETTINGS } from '../services/api';
 
 export default function ContactPage() {
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     settingsService.getPublic().then((data) => {
       if (data) setSettings(data);
-    }).catch(console.error);
+    }).catch(() => {
+      setSettings(DEFAULT_SETTINGS);
+    });
   }, []);
 
   return (

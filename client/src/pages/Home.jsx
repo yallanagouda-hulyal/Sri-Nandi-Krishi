@@ -9,21 +9,17 @@ import Testimonials from '../components/Testimonials';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
-import { settingsService } from '../services/api';
+import { settingsService, DEFAULT_SETTINGS } from '../services/api';
 
 export default function Home() {
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
 
   useEffect(() => {
-    const loadSettings = async () => {
-      try {
-        const data = await settingsService.getPublic();
-        if (data) setSettings(data);
-      } catch (e) {
-        console.error('Settings load error:', e);
-      }
-    };
-    loadSettings();
+    settingsService.getPublic().then((data) => {
+      if (data) setSettings(data);
+    }).catch(() => {
+      setSettings(DEFAULT_SETTINGS);
+    });
   }, []);
 
   return (

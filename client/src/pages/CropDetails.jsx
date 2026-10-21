@@ -32,7 +32,7 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import FloatingActions from '../components/FloatingActions';
 import Lightbox from '../components/Lightbox';
-import { cropService, settingsService } from '../services/api';
+import { cropService, settingsService, DEFAULT_SETTINGS } from '../services/api';
 import { openWhatsApp } from '../utils/whatsapp';
 
 // Crop Photography Assets
@@ -992,7 +992,7 @@ export default function CropDetails() {
   const config = CROP_CONFIGS[currentKey] || CROP_CONFIGS.sugarcane;
 
   const [service, setService] = useState(null);
-  const [settings, setSettings] = useState(null);
+  const [settings, setSettings] = useState(DEFAULT_SETTINGS);
   const [openFaq, setOpenFaq] = useState(0);
   const [activeLightboxImg, setActiveLightboxImg] = useState(null);
 
